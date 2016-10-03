@@ -9,11 +9,8 @@
 # If not running interactively, don't do anything
 // 만약 상호작용으로 실행되지 않는다면, 아무것도 하지 마라.
 case $- in 
-
     *i*) ;;
-
       *) return;;
-
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -82,23 +79,15 @@ if [ -n "$force_color_prompt" ]; then //
     # a case would tend to support setf rather than setaf.)
     // 경우는 setaf보다 오히려 setf를 지원하는 경향이 있다.
     color_prompt=yes
-
     else
-
     color_prompt=
-
     fi
-
 fi
 
 if [ "$color_prompt" = yes ]; then
-
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
 else
-
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-
 fi
 
 unset color_prompt force_color_prompt
@@ -106,45 +95,29 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 // 만약 이것이 xterm일 경우, 제목을 user@host:dir로 설정해라.
 case "$TERM" in
-
 xterm*|rxvt*)
-
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-
     ;;
-
 *)
-
     ;;
-
 esac
 
 # enable color support of ls and also add handy aliases
 // ls의 색깔 지원을 가능하게 하고 또한 간단한 명령어를 추가해라.
 if [ -x /usr/bin/dircolors ]; then
-
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-
     alias ls='ls --color=auto'
-
     #alias dir='dir --color=auto'
-
     #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
-
     alias fgrep='fgrep --color=auto'
-
     alias egrep='egrep --color=auto'
-
 fi
 
 # some more ls aliases
 // 조금 더 많은 명령어들
 alias ll='ls -alF'
-
 alias la='ls -A'
-
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -162,9 +135,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 // bash-doc패키지에 있는 /usr/share/doc/bash-doc/examples를 봐라.
 if [ -f ~/.bash_aliases ]; then
-
     . ~/.bash_aliases
-
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -174,15 +145,9 @@ fi
 # sources /etc/bash.bashrc).
 
 if ! shopt -oq posix; then
-
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-
     . /usr/share/bash-completion/bash_completion
-
   elif [ -f /etc/bash_completion ]; then
-
     . /etc/bash_completion
-
   fi
-
 fi
